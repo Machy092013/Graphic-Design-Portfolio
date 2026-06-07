@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name · GFX</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #111;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    padding: 32px 40px 60px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .site-name {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  .socials {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .social-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .social-row:hover { color: #fff; }
+
+  .social-row svg { flex-shrink: 0; }
+
+  /* ── SECTION TITLES ── */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .price-tag {
+    font-size: 1rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .robux {
+    color: #4ade80;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .paypal {
+    color: #60a5fa;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* Robux icon */
+  .robux-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+  }
+
+  /* ── GRID ── */
+  .grid {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+  /* ── CARD ── */
+  .card {
+    background: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    position: relative;
+  }
+
+  /* Square cards for profile pictures */
+  .card.square { aspect-ratio: 1/1; }
+  /* Wide cards for banners */
+  .card.banner { aspect-ratio: 3/1; }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Placeholder shown when no image */
+  .card-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 2px dashed #2a2a2a;
+    border-radius: 10px;
+    user-select: none;
+  }
+
+  /* Divider */
+  hr {
+    border: none;
+    border-top: 1px solid #2a2a2a;
+    margin: 8px 0 40px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    color: #444;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 700px) {
+    body { padding: 16px 12px 40px; }
+    header { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 28px; }
+    .site-name { font-size: 2rem; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .section-title { font-size: 1.2rem; }
+    .price-tag { font-size: 0.9rem; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 420px) {
+    .grid-3 { grid-template-columns: 1fr; }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="site-name">GFX Portfolio</div>
+  <div class="socials">
+    <!-- Roblox -->
+    <a class="social-row" href="https://www.roblox.com/users/1632026330/profile" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 100 100" fill="#fff"><path d="M17.073 65.954 34.127 2l65.954 17.054-17.054 63.954zm37.421-39.596a12.725 12.725 0 1 0 6.577 24.528 12.725 12.725 0 0 0-6.577-24.528z"/></svg>
+      Machy092013
+    </a>
+    <!-- Discord -->
+    <span class="social-row">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#5865F2"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.128 18.113a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+      jaydenthedev.
+    </span>
+  </div>
+</header>
+
+<!-- THUMBNAILS -->
+<div class="section-header">
+  <div class="section-title">Thumbnails</div>
+  <div class="price-tag">
+    <span class="robux">
+      <span class="robux-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polygon points="12,2 19,7 19,17 12,22 5,17 5,7"/><circle cx="12" cy="12" r="3"/></svg>
+      </span>
+      1,000
+    </span>
+    <span style="color:#555;">·</span>
+    <span class="paypal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#60a5fa"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 6.082-8.558 6.082H9.828c-.395 0-.733.287-.794.677L7.848 21.34H12.1c.458 0 .849-.332.921-.785l.038-.196.734-4.653.047-.258c.072-.453.463-.785.92-.785h.58c3.754 0 6.694-1.525 7.553-5.935.358-1.837.17-3.37-.671-4.351z"/></svg>
+      $12.50
+    </span>
+  </div>
+</div>
+
+<div class="grid grid-3">
+  <!-- Replace card-placeholder divs with: <img src="images/thumb1.png" alt="Thumbnail 1"> -->
+  <div class="card"><div class="card-placeholder">Add image</div></div>
+  <div class="card"><div class="card-placeholder">Add image</div></div>
+  <div class="card"><div class="card-placeholder">Add image</div></div>
+  <div class="card"><div class="card-placeholder">Add image</div></div>
+  <div class="card"><div class="card-placeholder">Add image</div></div>
+  <div class="card"><div class="card-placeholder">Add image</div></div>
+</div>
+
+<hr>
+
+<!-- PROFILE PICTURES -->
+<div class="section-header">
+  <div class="section-title">Profile Pictures</div>
+  <div class="price-tag">
+    <span class="robux">
+      <span class="robux-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polygon points="12,2 19,7 19,17 12,22 5,17 5,7"/><circle cx="12" cy="12" r="3"/></svg>
+      </span>
+      500
+    </span>
+    <span style="color:#555;">·</span>
+    <span class="paypal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#60a5fa"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 6.082-8.558 6.082H9.828c-.395 0-.733.287-.794.677L7.848 21.34H12.1c.458 0 .849-.332.921-.785l.038-.196.734-4.653.047-.258c.072-.453.463-.785.92-.785h.58c3.754 0 6.694-1.525 7.553-5.935.358-1.837.17-3.37-.671-4.351z"/></svg>
+      $5.00
+    </span>
+  </div>
+</div>
+
+<div class="grid grid-4">
+  <div class="card square"><img src="Kawaii_GFX_with_Background.png" alt="Kawaii profile picture"></div>
+  <div class="card square"><div class="card-placeholder">Add image</div></div>
+  <div class="card square"><div class="card-placeholder">Add image</div></div>
+  <div class="card square"><div class="card-placeholder">Add image</div></div>
+</div>
+
+<hr>
+
+<!-- BANNERS -->
+<div class="section-header">
+  <div class="section-title">Banners</div>
+  <div class="price-tag">
+    <span class="robux">
+      <span class="robux-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polygon points="12,2 19,7 19,17 12,22 5,17 5,7"/><circle cx="12" cy="12" r="3"/></svg>
+      </span>
+      750
+    </span>
+    <span style="color:#555;">·</span>
+    <span class="paypal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#60a5fa"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 6.082-8.558 6.082H9.828c-.395 0-.733.287-.794.677L7.848 21.34H12.1c.458 0 .849-.332.921-.785l.038-.196.734-4.653.047-.258c.072-.453.463-.785.92-.785h.58c3.754 0 6.694-1.525 7.553-5.935.358-1.837.17-3.37-.671-4.351z"/></svg>
+      $7.50
+    </span>
+  </div>
+</div>
+
+<div class="grid grid-2">
+  <div class="card banner"><img src="Kawaii_Banner_GFX.png" alt="Kawaii banner"></div>
+  <div class="card banner"><div class="card-placeholder">Add image</div></div>
+  <div class="card banner"><div class="card-placeholder">Add image</div></div>
+  <div class="card banner"><div class="card-placeholder">Add image</div></div>
+</div>
+
+
+
+</body>
+</html>
