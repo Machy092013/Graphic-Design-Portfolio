@@ -114,7 +114,7 @@
   .grid-3 { grid-template-columns: repeat(3, 1fr); }
   .grid-4 { grid-template-columns: repeat(4, 1fr); }
 
-  /* ── CARD ── */
+  /* ── CARD (fixed aspect ratio) ── */
   .card {
     background: #1e1e1e;
     border-radius: 10px;
@@ -159,6 +159,37 @@
     user-select: none;
   }
 
+  /* ── AUTO-SIZING CARD (fits PNG natural dimensions) ── */
+  .card-auto {
+    background: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+  }
+
+  .card-auto:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+  }
+
+  .card-auto img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Auto-sizing grid: columns shrink/grow to fit content */
+  .grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 10px;
+    margin-bottom: 40px;
+    align-items: start; /* so cards don't stretch to match each other */
+  }
+
   /* Divider */
   hr {
     border: none;
@@ -185,6 +216,7 @@
     .grid-2 { grid-template-columns: 1fr; }
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
     .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-auto { grid-template-columns: 1fr; }
   }
   @media (max-width: 420px) {
     .grid-3 { grid-template-columns: 1fr; }
@@ -247,7 +279,7 @@
       <span class="robux-icon">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polygon points="12,2 19,7 19,17 12,22 5,17 5,7"/><circle cx="12" cy="12" r="3"/></svg>
       </span>
-      500
+      350
     </span>
     <span style="color:#555;">·</span>
     <span class="paypal">
@@ -264,7 +296,29 @@
   <div class="card square"><div class="card-placeholder">Add image</div></div>
 </div>
 
+<hr>
 
+<!-- REALISTIC RENDERS -->
+<div class="section-header">
+  <div class="section-title">Realistic Renders</div>
+  <div class="price-tag">
+    <span class="robux">
+      <span class="robux-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polygon points="12,2 19,7 19,17 12,22 5,17 5,7"/><circle cx="12" cy="12" r="3"/></svg>
+      </span>
+      1,500
+    </span>
+    <span style="color:#555;">·</span>
+    <span class="paypal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#60a5fa"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 6.082-8.558 6.082H9.828c-.395 0-.733.287-.794.677L7.848 21.34H12.1c.458 0 .849-.332.921-.785l.038-.196.734-4.653.047-.258c.072-.453.463-.785.92-.785h.58c3.754 0 6.694-1.525 7.553-5.935.358-1.837.17-3.37-.671-4.351z"/></svg>
+      $20.00
+    </span>
+  </div>
+</div>
+
+<div class="grid-auto">
+  <div class="card-auto"><img src="OCP Outside.png" alt="OCP Outside realistic render"></div>
+</div>
 
 </body>
 </html>
